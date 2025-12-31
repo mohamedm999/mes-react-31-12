@@ -12,6 +12,7 @@ const FilterButtons = () => {
   const dispatch = useAppDispatch();
   const currentFilter = useAppSelector((state) => state.filter.value);
 
+
   return (
     <div className="flex gap-2 mb-6 flex-wrap">
       {filters.map((filter) => (
