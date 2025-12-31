@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Todo } from "../types/todo";
 
 // Données initiales simulées
@@ -17,7 +18,23 @@ const fetchTodos = (): Promise<Todo[]> => {
 };
 
 // Hook pour récupérer les todos
-export const useTodos = () => {};
+export const useTodos = () => {
+  const [todos, setTodo] = useState([]);
+
+  useEffect(() => {
+    fetch()
+      .then((res) => res.json())
+      .then((data) => setTodo(data));
+  }, []);
+
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id}>{todo.title}</li>
+      ))}
+    </ul>
+  );
+};
 
 // Hook pour ajouter un todo
 export const useAddTodo = () => {};
